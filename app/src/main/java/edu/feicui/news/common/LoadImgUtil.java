@@ -7,13 +7,13 @@ import android.widget.ImageView;
  * Created by Administrator on 2017/2/20 0020.
  */
 
-public class MBitMapUtil {
+public class LoadImgUtil {
     MemoryUtil memoryUtil;
     FileDBUtil fileDBUtil;
     NetUtil netUtil;
     boolean isLock;
 
-    public MBitMapUtil() {
+    public LoadImgUtil() {
         memoryUtil = new MemoryUtil();
         fileDBUtil = new FileDBUtil();
         netUtil = new NetUtil();

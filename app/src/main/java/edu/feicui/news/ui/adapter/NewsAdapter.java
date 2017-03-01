@@ -11,7 +11,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 import edu.feicui.news.R;
-import edu.feicui.news.common.MBitMapUtil;
+import edu.feicui.news.common.LoadImgUtil;
 import edu.feicui.news.common.NetUtil;
 import edu.feicui.news.model.entity.News;
 
@@ -23,7 +23,7 @@ public class NewsAdapter extends MyBaseAdapter
 //        implements AbsListView.OnScrollListener
 {//新闻主界面适配器
     private LayoutInflater layoutInflater;
-    private MBitMapUtil mBitMapUtil;
+    private LoadImgUtil mLoadImgUtil;
     NetUtil netUtil;
     ListView mLvNews;
     public boolean isScrolling = false;
@@ -34,7 +34,7 @@ public class NewsAdapter extends MyBaseAdapter
         mLvNews = listView;//优化ListView,已在Avtivity里优化
         netUtil = new NetUtil();
         layoutInflater = (LayoutInflater) mCtx.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        mBitMapUtil = new MBitMapUtil();
+        mLoadImgUtil = new LoadImgUtil();
 //        mLvNews.setOnScrollListener(this);
     }
 
@@ -68,7 +68,7 @@ public class NewsAdapter extends MyBaseAdapter
         if (isScrolling) {
             viewHolder.mImgIcon.setImageDrawable(mCtx.getResources().getDrawable(R.mipmap.ic_launcher));
         } else {
-            mBitMapUtil.display(viewHolder.mImgIcon, news.icon);
+            mLoadImgUtil.display(viewHolder.mImgIcon, news.icon);
         }
         return view;
     }
