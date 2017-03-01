@@ -9,7 +9,7 @@
 
     <dimen name="news_activity_rela_txt_marginleft">5dp</dimen>
     <dimen name="news_activity_rela_img_marginright">16dp</dimen>
-    <dimen name="news_lin_height">50dp</dimen>
+    <dimen name="news_lin_height">40dp</dimen>
     <dimen name="news_lin_txt_size">20sp</dimen>
     <dimen name="news_lin_txt_padding">8dp</dimen>
     <dimen name="news_lin_list_height">60dp</dimen>

@@ -1,10 +1,11 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             xmlns:tools="http://schemas.android.com/tools"
-             android:id="@+id/activity_news"
-             android:layout_width="match_parent"
-             android:layout_height="match_parent"
-             android:orientation="vertical"
-             tools:context="edu.feicui.news.ui.FragmentMain">
+              xmlns:tools="http://schemas.android.com/tools"
+              android:id="@+id/activity_news"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical"
+              tools:context="edu.feicui.news.ui.FragmentMain">
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="@dimen/news_lin_height"
@@ -29,6 +30,12 @@
             android:layout_marginRight="@dimen/news_activity_rela_img_marginright"
             android:src="@drawable/news_type_bar_right_icon"/>
     </RelativeLayout>
+    <edu.feicui.news.view.XListView.XListView
+        android:id="@+id/xLv_header"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:cacheColorHint="#000000"/>
+
     <ListView
         android:id="@+id/news_list"
         android:layout_width="match_parent"

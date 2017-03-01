@@ -19,7 +19,6 @@ public class MBitMapUtil {
         netUtil = new NetUtil();
     }
 
-
     public void display(ImageView view, String url) {//显示图片
         Bitmap bitmap = null;
         String urlsub = url.substring(url.lastIndexOf("/") + 1, url.length());

@@ -12,7 +12,6 @@ import android.view.ViewGroup;
 import android.webkit.WebView;
 import android.widget.AbsListView;
 import android.widget.AdapterView;
-import android.widget.ListView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -22,20 +21,22 @@ import edu.feicui.news.common.HttpURLConnectionUti;
 import edu.feicui.news.model.biz.NewsParser;
 import edu.feicui.news.model.entity.News;
 import edu.feicui.news.ui.adapter.NewsAdapter;
+import edu.feicui.news.view.XListView.XListView;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class FragmentMain extends Fragment implements View.OnClickListener {
-    Handler handler;
+public class FragmentMain extends Fragment implements View.OnClickListener, XListView.IXListViewListener {
+    private Handler handler;
     private WebView mWbNews;
-    ArrayList<News> data = null;
-    HttpURLConnectionUti httpURL;
-    NewsParser newsParser;
-    TextView newsTxtMilitary;
-    TextView newsTxtSociety;
-    ListView mLvNews;
-    NewsAdapter newsAdapter;
+    private ArrayList<News> data = null;
+    private HttpURLConnectionUti httpURL;
+    private NewsParser newsParser;
+    private TextView newsTxtMilitary;
+    private TextView newsTxtSociety;
+    //    private ListView mLvNews;
+    private NewsAdapter newsAdapter;
+    private XListView mXListView;
     private int startIndex;
     private int endIndex;
 
@@ -48,10 +49,14 @@ public class FragmentMain extends Fragment implements View.OnClickListener {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_mian, container, false);
-        mLvNews = (ListView) view.findViewById(R.id.news_list);
+//        mLvNews = (ListView) view.findViewById(R.id.news_list);
+        mXListView = (XListView) view.findViewById(R.id.xLv_header);
+        mXListView.setPullLoadEnable(true);
         httpURL = new HttpURLConnectionUti();
         newsParser = new NewsParser(getContext());
-        newsAdapter = new NewsAdapter(getContext(), mLvNews);
+        newsAdapter = new NewsAdapter(getContext(), mXListView);
+        mXListView.setAdapter(newsAdapter);
+        mXListView.setXListViewListener(this);
         newsTxtMilitary = (TextView) view.findViewById(R.id.news_txt_military);
         newsTxtSociety = (TextView) view.findViewById(R.id.news_txt_society);
         new Thread(new Runnable() {
@@ -78,8 +83,8 @@ public class FragmentMain extends Fragment implements View.OnClickListener {
         };
         newsTxtMilitary.setOnClickListener(this);
         newsTxtSociety.setOnClickListener(this);
-        mLvNews.setAdapter(newsAdapter);
-        mLvNews.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        mXListView.setAdapter(newsAdapter);
+        mXListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 //                newsTitle.setTextColor(getResources().getColor(R.color.colorGray));
@@ -91,7 +96,7 @@ public class FragmentMain extends Fragment implements View.OnClickListener {
                 startActivity(intent);
             }
         });
-        mLvNews.setOnScrollListener(new AbsListView.OnScrollListener() {
+        mXListView.setOnScrollListener(new AbsListView.OnScrollListener() {
             @Override
             public void onScrollStateChanged(AbsListView view, int scrollState) {
                 switch (scrollState) {
@@ -179,5 +184,41 @@ public class FragmentMain extends Fragment implements View.OnClickListener {
                 }
                 break;
         }
+    }
+
+    private void onLoad() {
+        mXListView.stopRefresh();
+        mXListView.stopLoadMore();
+        mXListView.setRefreshTime("刚刚");
+    }
+
+    @Override
+    public void onRefresh() {
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                if (data.size() == 0) {
+                    return;
+                } else {
+                    newsAdapter.addendData(data);//追加数据，是否清空adapter原有数据
+                    onLoad();
+                }
+            }
+        }, 2000);
+    }
+
+    @Override
+    public void onLoadMore() {
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                if (data.size() == 0) {
+                    return;
+                } else {
+                    newsAdapter.notifyDataSetChanged();//刷新UI
+                    onLoad();
+                }
+            }
+        }, 2000);
     }
 }

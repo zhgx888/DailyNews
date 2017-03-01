@@ -8,7 +8,6 @@ import edu.feicui.news.R;
 import edu.feicui.news.ui.base.MyBaseActivity;
 
 public class NewsActivity extends MyBaseActivity  {//新闻主界面
-
     SlidingMenu slidingMenu;
     FragmentMain fragmentMain;
     FragmentMenuLeft fragmentMenuLeft;
@@ -79,6 +78,4 @@ public class NewsActivity extends MyBaseActivity  {//新闻主界面
                 break;
         }
     }
-
-
 }
