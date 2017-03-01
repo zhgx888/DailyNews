@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="@dimen/news_lin_list_height"
+              android:background="@drawable/home_entry_item_normal"
+              android:orientation="horizontal">
+
+
+    <ImageView
+        android:id="@+id/news_list_img"
+        android:layout_width="@dimen/news_lin_list_img_width"
+        android:layout_height="@dimen/news_lin_list_img_height"
+        android:paddingLeft="@dimen/news_lin_list_img_paddingleft"
+        android:paddingRight="@dimen/news_lin_list_img_paddingright"
+        android:src="@mipmap/ic_launcher"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingRight="@dimen/news_lin_list_lin_paddingright">
+
+        <TextView
+            android:id="@+id/news_list_title"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/news_lin_list_txt1_height"
+            android:gravity="center_vertical"
+            android:maxLines="@string/num_one"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/news_lin_list_txt1_size"/>
+
+        <TextView
+            android:id="@+id/news_list_summary"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/news_lin_list_txt2_height"
+            android:gravity="center_vertical"
+            android:maxLines="@string/num_one"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/news_lin_list_txt2_size"/>
+
+        <TextView
+            android:id="@+id/news_list_stamp"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/news_lin_list_txt3_height"
+            android:gravity="center_vertical|right"
+            android:maxLines="@string/num_one"
+            android:textSize="@dimen/news_lin_list_txt3_size"/>
+    </LinearLayout>
+
+</LinearLayout>

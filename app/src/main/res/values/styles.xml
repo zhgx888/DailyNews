@@ -1,0 +1,38 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="NewsActivityTxt">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">@dimen/news_lin_txt_size</item>
+        <item name="android:padding">@dimen/news_lin_txt_padding</item>
+        <item name="android:textColor">@color/colorBlack</item>
+    </style>
+
+    <style name="LeadImgStyle">
+        <!-- My LeadImgStyle. - - - 导航界面圆点图片风格 -->
+        <item name="android:layout_width">@dimen/lead_layout_img_style_width</item>
+        <item name="android:layout_height">@dimen/lead_layout_img_style_width</item>
+        <item name="android:layout_marginLeft">@dimen/lead_layout_img_style_marginLeft</item>
+        <item name="android:layout_marginRight">@dimen/lead_layout_img_style_marginRight</item>
+        <item name="android:background">@mipmap/adware_style_default</item>
+    </style>
+
+    <style name="NewsSlidMenuTxt">
+        <!-- My LeadImgStyle. - - - 左侧画框Txt风格 -->
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/layout_height_zero</item>
+        <item name="android:layout_weight">@string/num_one</item>
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:gravity">center_vertical</item>
+    </style>
+
+</resources>

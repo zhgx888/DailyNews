@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">DailyNews</string>
+
+    <string name="news_military">military</string>
+    <string name="news_society">society</string>
+
+    <string name="num_one">1</string>
+    <string name="num_two">2</string>
+
+</resources>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/activity_lead"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/lead_viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/lead_layout_height"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="@dimen/lead_layout_margin"
+        android:gravity="center">
+
+        <ImageView
+            android:id="@+id/lead_img1"
+            style="@style/LeadImgStyle"
+            android:background="@mipmap/adware_style_selected"/>
+
+        <ImageView
+            android:id="@+id/lead_img2"
+            style="@style/LeadImgStyle"/>
+
+        <ImageView
+            android:id="@+id/lead_img3"
+            style="@style/LeadImgStyle"/>
+
+        <ImageView
+            android:id="@+id/lead_img4"
+            style="@style/LeadImgStyle"/>
+    </LinearLayout>
+</RelativeLayout>
